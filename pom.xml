@@ -114,6 +114,21 @@
         </pluginRepository>
     </pluginRepositories>
 
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.openspml</groupId>
+                <artifactId>openspml2</artifactId>
+                <version>${openspml.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <properties>
+        <openspml.version>192-20100413</openspml.version>
+    </properties>
+
     <modules>
         <module>components/org.wso2.carbon.identity.provisioning.connector.spml</module>
         <module>features/org.wso2.carbon.identity.provisioning.connector.spml.server.feature</module>
