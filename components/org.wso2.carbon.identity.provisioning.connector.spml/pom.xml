@@ -76,31 +76,12 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>2.0</version>
-                <configuration>
-                    <source>1.7</source>
-                    <target>1.7</target>
-                </configuration>
-            </plugin>
-            <plugin>
                 <groupId>org.apache.felix</groupId>
                 <artifactId>maven-scr-plugin</artifactId>
-                <version>1.7.2</version>
-                <executions>
-                    <execution>
-                        <id>generate-scr-scrdescriptor</id>
-                        <goals>
-                            <goal>scr</goal>
-                        </goals>
-                    </execution>
-                </executions>
             </plugin>
             <plugin>
                 <groupId>org.apache.felix</groupId>
                 <artifactId>maven-bundle-plugin</artifactId>
-                <version>1.4.0</version>
                 <extensions>true</extensions>
                 <configuration>
                     <instructions>
@@ -112,7 +93,7 @@
                         <Import-Package>
                             javax.swing,
                             javax.xml.parsers; version="${javax.xml.parsers.import.pkg.version}",
-                            javax.xml.transform.*; version=0.0.0,
+                            javax.xml.transform.*,
                             javax.servlet; version="${imp.pkg.version.javax.servlet}",
                             javax.servlet.http; version="${imp.pkg.version.javax.servlet}",
                             org.apache.commons.collections; version="${commons-collections.wso2.osgi.version.range}",
@@ -122,14 +103,14 @@
                             org.osgi.framework; version="${osgi.framework.imp.pkg.version.range}",
                             org.osgi.service.component; version="${osgi.service.component.imp.pkg.version.range}",
                             org.wso2.carbon.identity.application.common.model;
-                            version="${carbon.identity.package.import.version.range}",
+                            version="${carbon.identity.framework.package.import.version.range}",
                             org.wso2.carbon.identity.provisioning;
-                            version="${carbon.identity.package.import.version.range}",
+                            version="${carbon.identity.framework.package.import.version.range}",
                         </Import-Package>
                         <Export-Package>
                             !org.wso2.carbon.identity.provisioning.connector.spml.internal,
                             org.wso2.carbon.identity.provisioning.connector.spml.*;
-                            version="${carbon.identity.package.export.version}"
+                            version="${carbon.identity.outbound.prov.spml.package.export.version}"
                         </Export-Package>
                         <Embed-Dependency>
                             openspml2|runtime;inline=false
