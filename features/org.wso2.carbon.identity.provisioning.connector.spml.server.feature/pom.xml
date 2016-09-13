@@ -19,7 +19,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
     <parent>
-        <groupId>org.wso2.carbon.identity</groupId>
+        <groupId>org.wso2.carbon.identity.outbound.provisioning.spml</groupId>
         <artifactId>identity-outbound-provisioning-spml</artifactId>
         <relativePath>../../pom.xml</relativePath>
         <version>5.1.2-SNAPSHOT</version>
@@ -34,7 +34,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.wso2.carbon.identity</groupId>
+            <groupId>org.wso2.carbon.identity.outbound.provisioning.spml</groupId>
             <artifactId>org.wso2.carbon.identity.provisioning.connector.spml</artifactId>
         </dependency>
     </dependencies>
@@ -57,7 +57,7 @@
                             <propertiesFile>../etc/feature.properties</propertiesFile>
                             <bundles>
                                 <bundleDef>
-                                    org.wso2.carbon.identity:org.wso2.carbon.identity.provisioning.connector.spml
+                                    org.wso2.carbon.identity.outbound.provisioning.spml:org.wso2.carbon.identity.provisioning.connector.spml
                                 </bundleDef>
                             </bundles>
                             <importFeatures>

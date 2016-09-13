@@ -24,7 +24,7 @@
         <version>1</version>
     </parent>
 
-    <groupId>org.wso2.carbon.identity</groupId>
+    <groupId>org.wso2.carbon.identity.outbound.provisioning.spml</groupId>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>identity-outbound-provisioning-spml</artifactId>
     <version>5.1.2-SNAPSHOT</version>
@@ -60,18 +60,18 @@
                 <version>${carbon.kernel.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.wso2.carbon.identity</groupId>
+                <groupId>org.wso2.carbon.identity.framework</groupId>
                 <artifactId>org.wso2.carbon.identity.core</artifactId>
                 <version>${carbon.identity.framework.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.wso2.carbon.identity</groupId>
+                <groupId>org.wso2.carbon.identity.framework</groupId>
                 <artifactId>org.wso2.carbon.identity.provisioning</artifactId>
                 <version>${carbon.identity.framework.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>org.wso2.carbon.identity</groupId>
+                <groupId>org.wso2.carbon.identity.outbound.provisioning.spml</groupId>
                 <artifactId>org.wso2.carbon.identity.provisioning.connector.spml</artifactId>
                 <version>${project.version}</version>
             </dependency>
