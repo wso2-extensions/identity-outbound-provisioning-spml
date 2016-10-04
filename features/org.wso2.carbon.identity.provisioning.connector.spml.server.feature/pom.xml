@@ -22,7 +22,7 @@
         <groupId>org.wso2.carbon.identity.outbound.provisioning.spml</groupId>
         <artifactId>identity-outbound-provisioning-spml</artifactId>
         <relativePath>../../pom.xml</relativePath>
-        <version>5.1.2-SNAPSHOT</version>
+        <version>5.1.2</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
