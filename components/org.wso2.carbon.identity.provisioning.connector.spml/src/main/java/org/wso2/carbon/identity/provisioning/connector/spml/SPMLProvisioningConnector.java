@@ -52,7 +52,7 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.UUID;
 
-
+@Deprecated
 public class SPMLProvisioningConnector extends AbstractOutboundProvisioningConnector {
 
     private static final long serialVersionUID = -1046148327813739881L;
@@ -85,13 +85,15 @@ public class SPMLProvisioningConnector extends AbstractOutboundProvisioningConne
             throws IdentityProvisioningException {
 
         String provisionedId = null;
-
-        if (provisioningEntity.isJitProvisioning() && !isJitProvisioningEnabled()) {
-            log.debug("JIT provisioning disabled for SPML connector");
-            return null;
-        }
+        // creates a provisioned identifier for the provisioned user.
+        ProvisionedIdentifier identifier = new ProvisionedIdentifier();
 
         if (provisioningEntity != null) {
+            if (provisioningEntity.isJitProvisioning() && !isJitProvisioningEnabled()) {
+                log.debug("JIT provisioning disabled for SPML connector");
+                return identifier;
+            }
+
             if (provisioningEntity.getEntityType() == ProvisioningEntityType.USER) {
                 if (provisioningEntity.getOperation() == ProvisioningOperation.DELETE) {
                     deleteUser(provisioningEntity);
@@ -105,11 +107,10 @@ public class SPMLProvisioningConnector extends AbstractOutboundProvisioningConne
             } else {
                 log.warn("Unsupported provisioning opertaion.");
             }
-        }
 
-        // creates a provisioned identifier for the provisioned user.
-        ProvisionedIdentifier identifier = new ProvisionedIdentifier();
-        identifier.setIdentifier(provisionedId);
+            identifier.setIdentifier(provisionedId);
+            return identifier;
+        }
         return identifier;
     }
 
@@ -207,8 +208,6 @@ public class SPMLProvisioningConnector extends AbstractOutboundProvisioningConne
                     .getValue("spml-oc")));
             attrs.addOpenContentElement(new DSMLAttr("accountId", userName));
             attrs.addOpenContentElement(new DSMLAttr("credentials", UUID.randomUUID().toString()));
-
-            List<String> extractAttributes = configHolder.extractAttributes();
 
             // get user attributes.
             Map<String, String> claims = getSingleValuedClaims(provisioningEntity.getAttributes());
