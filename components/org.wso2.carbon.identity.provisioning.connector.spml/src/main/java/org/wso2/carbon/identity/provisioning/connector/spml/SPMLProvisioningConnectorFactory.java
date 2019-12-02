@@ -25,6 +25,9 @@ import org.wso2.carbon.identity.provisioning.AbstractOutboundProvisioningConnect
 import org.wso2.carbon.identity.provisioning.AbstractProvisioningConnectorFactory;
 import org.wso2.carbon.identity.provisioning.IdentityProvisioningException;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class SPMLProvisioningConnectorFactory extends AbstractProvisioningConnectorFactory {
 
     private static final Log log = LogFactory.getLog(SPMLProvisioningConnectorFactory.class);
@@ -49,4 +52,45 @@ public class SPMLProvisioningConnectorFactory extends AbstractProvisioningConnec
         return SPML;
     }
 
+    /**
+     * Get Configuration Properties.
+     */
+    @Override
+    public List<Property> getConfigurationProperties() {
+
+        List<Property> configProperties = new ArrayList<>();
+        Property username = new Property();
+        username.setName("spml-username");
+        username.setDisplayName("Username");
+        username.setRequired(false);
+        username.setType("string");
+        username.setDisplayOrder(1);
+        configProperties.add(username);
+
+        Property password = new Property();
+        password.setName("spml-password");
+        password.setDisplayName("Password");
+        password.setRequired(false);
+        password.setType("string");
+        password.setDisplayOrder(2);
+        configProperties.add(password);
+
+        Property spmlEp = new Property();
+        spmlEp.setName("spml-ep");
+        spmlEp.setDisplayName("SPML Endpoint");
+        spmlEp.setRequired(true);
+        spmlEp.setType("string");
+        spmlEp.setDisplayOrder(3);
+        configProperties.add(spmlEp);
+
+        Property spmlOc = new Property();
+        spmlOc.setName("spml-oc");
+        spmlOc.setDisplayName("SPML ObjectClass");
+        spmlOc.setRequired(true);
+        spmlOc.setType("string");
+        spmlOc.setDisplayOrder(4);
+        configProperties.add(spmlOc);
+
+        return configProperties;
+    }
 }
