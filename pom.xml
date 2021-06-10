@@ -161,7 +161,7 @@
         <carbon.identity.outbound.prov.spml.package.export.version>${project.version}
         </carbon.identity.outbound.prov.spml.package.export.version>
 
-        <junit.version>4.11</junit.version>
+        <junit.version>4.13.1</junit.version>
         <openspml.version>192-20100413</openspml.version>
         <javax.xml.parsers.import.pkg.version>[0.0.0, 1.0.0)</javax.xml.parsers.import.pkg.version>
 
